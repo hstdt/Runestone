@@ -673,6 +673,9 @@ final class TextInputView: UIView, UITextInput {
     override func resignFirstResponder() -> Bool {
         let didResignFirstResponder = super.resignFirstResponder()
         if didResignFirstResponder {
+            if (markedRange != nil) {
+                markedRange = nil
+            }
             delegate?.textInputViewDidEndEditing(self)
         }
         return didResignFirstResponder
